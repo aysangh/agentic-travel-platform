@@ -1,0 +1,48 @@
+[project]
+name = "agentic-travel-platform"
+version = "0.1.0"
+description = "MCP-powered multi-agent travel planning platform built with LangGraph and FastMCP"
+requires-python = ">=3.10"
+
+authors = [
+  { name = "Aysan Ghayouri" }
+]
+
+readme = "README.md"
+license = { text = "MIT" }
+
+dependencies = [
+    "python-dotenv",
+    "jdatetime",
+    "pytest-playwright",
+    "httpx",
+    "fastmcp",
+    "langgraph",
+    "langchain",
+    "langchain-openai",
+    "langchain-mcp-adapters",
+    "langfuse",
+    "sqlalchemy>=2.0.52",
+    "asyncpg>=0.31.0",
+    "alembic>=1.19.1",
+    "pgvector>=0.5.0",
+    "langgraph-checkpoint-postgres>=3.1.2",
+    "fastapi[standard]>=0.141.1",
+    "psycopg[binary,pool]>=3.3.5",
+    "pwdlib[argon2]>=0.3.1",
+]
+
+[tool.setuptools]
+packages = ["mcp_integration", "agents", "graph", "config", "memory", "app"]
+
+[dependency-groups]
+dev = [
+    "httpx>=0.28.1",
+    "pytest>=9.1.1",
+    "pytest-asyncio>=1.4.0",
+]
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"
+pythonpath = ["."]
+testpaths = ["tests"]
